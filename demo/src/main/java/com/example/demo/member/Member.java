@@ -10,6 +10,18 @@ public class Member {
     private String email;
     private LocalDateTime signupTime;
 
+    public Member() {
+    }
+
+    public Member(String id, String pw, String name, int age, String email, LocalDateTime signupTime) {
+        this.id = id;
+        this.pw = pw;
+        this.name = name;
+        this.age = age;
+        this.email = email;
+        this.signupTime = signupTime;
+    }
+
     public String getId() {
         return id;
     }

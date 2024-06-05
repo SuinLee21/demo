@@ -1,5 +1,6 @@
 package com.example.demo.member;
 
+import java.util.List;
 import java.util.NoSuchElementException;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,14 +19,34 @@ public class MemberService {
      * @return 조회된 회원 정보
      * @throws NoSuchElementException 회원 정보가 없을 경우 예외 발생
      */
-    public Member getMember(String name) throws NoSuchElementException {
-        Member member = memberMapper.getMemberByName(name);
-
+    public Member signIn(String id, String pw) throws NoSuchElementException {
+        // Member getMem = memberMapper.getMemberById(id);
+        Member member = memberMapper.getMember(id, pw);
         if (member == null) {
-            // 조회된 member가 없을 경우 NoSuchElementException 예외를 던집니다.
             throw new NoSuchElementException("Not Found Member");
         }
         return member;
     }
 
+    public Member getMemberById(String id) throws NoSuchElementException {
+        Member member = memberMapper.getMemberById(id);
+
+        if (member == null) {
+            throw new NoSuchElementException("Not Found Member");
+        }
+        return member;
+    }
+
+    public Member updateMember(Member member) throws NoSuchElementException {
+        Member find = memberMapper.getMemberById(member.getId());
+        if (find == null) {
+            throw new NoSuchElementException("Not Found Member");
+        }
+        memberMapper.updateMember(member);
+        return member;
+    }
+
+    public List<Member> getMemberList() {
+        return memberMapper.getMemberList();
+    }
 }

@@ -4,11 +4,23 @@ import java.time.LocalDateTime;
 
 public class Member {
     private String id;
-    private String passwd;
+    private String pw;
     private String name;
     private int age;
     private String email;
-    private LocalDateTime signuptime;
+    private LocalDateTime signupTime;
+
+    public Member() {
+    }
+
+    public Member(String id, String pw, String name, int age, String email, LocalDateTime signupTime) {
+        this.id = id;
+        this.pw = pw;
+        this.name = name;
+        this.age = age;
+        this.email = email;
+        this.signupTime = signupTime;
+    }
 
     public String getId() {
         return id;
@@ -18,12 +30,12 @@ public class Member {
         this.id = id;
     }
 
-    public String getPasswd() {
-        return passwd;
+    public String getPw() {
+        return pw;
     }
 
-    public void setPasswd(String passwd) {
-        this.passwd = passwd;
+    public void setPw(String pw) {
+        this.pw = pw;
     }
 
     public String getName() {
@@ -50,11 +62,23 @@ public class Member {
         this.email = email;
     }
 
-    public LocalDateTime getSignuptime() {
-        return signuptime;
+    public LocalDateTime getSignupTime() {
+        return signupTime;
     }
 
-    public void setSignuptime(LocalDateTime signuptime) {
-        this.signuptime = signuptime;
+    public void setSignupTime(LocalDateTime signupTime) {
+        this.signupTime = signupTime;
     }
+
+    // @Override
+    // public String toString() {
+    // return "Member{" +
+    // "id='" + id + '\'' +
+    // ", pw='" + pw + '\'' +
+    // ", name='" + name + '\'' +
+    // ", age=" + age +
+    // ", email='" + email + '\'' +
+    // ", signupTime=" + signupTime +
+    // '}';
+    // }
 }
